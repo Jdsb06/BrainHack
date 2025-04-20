@@ -1,83 +1,157 @@
-# Distraction Detox
+# BrainHack - Your Personal Productivity and Mental Wellness Companion
 
-_Distraction Detox_ is a web application designed to help users break free from unproductive digital habits and improve their focus and productivity. Using machine learning for behavior analysis and anomaly detection, the app provides personalized insights, recommendations, and coaching to help users manage their time effectively.
+![BrainHack Logo](public/logo.png)
 
----
+## Overview
 
-## Table of Contents
-
-- [Features](#features)
-- [Architecture & Tech Stack](#architecture--tech-stack)
-- [Setup & Installation](#setup--installation)
-- [Usage](#usage)
-- [Development Roadmap](#development-roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
----
+BrainHack is an innovative web application that combines cutting-edge AI technology with neuroscience principles to help users achieve optimal focus and maintain mental wellness. The platform features an interactive brain visualization, AI-powered distraction risk prediction, and an intelligent chat assistant.
 
 ## Features
 
-- **User Analytics Dashboard:**  
-  View real-time charts and historical data on your digital behavior. Monitor session duration, frequency of distractions, and productivity trends.
-  
-- **Focus Mode & Pomodoro Timer:**  
-  Launch focus sessions with customizable timer settings. Automatically block distracting websites and set clear work intervals.
+### 1. Interactive Brain Visualization
+- Split-brain animation representing the harmony between analytical and creative thinking
+- Left hemisphere showcases logical processing in grayscale
+- Right hemisphere displays creativity through vibrant colors
+- Dynamic animations respond to user interactions
+- Custom cursor effects and gradient overlays
 
-- **Behavior Analysis & Anomaly Detection:**  
-  An ML-powered module analyzes user data and identifies spikes in distracting activity using unsupervised models like Isolation Forest. Receive timely notifications and actionable insights.
+### 2. Distraction Risk Predictor
+- AI-powered tool that analyzes multiple factors affecting focus
+- Input parameters include:
+  - Time of day and location
+  - Current activity and productive session duration
+  - Stress and fatigue levels
+  - Recent notifications and phone usage
+- Provides personalized risk assessments and actionable recommendations
+- Includes a focus timer with customizable session lengths
 
-- **Personalized Recommendations:**  
-  Based on detected behavior patterns, get suggestions for optimal break times, focus adjustments, and alternative high-quality content.
+### 3. AI Chat Assistant
+- Powered by Google's Gemini AI
+- Provides personalized advice on:
+  - Productivity strategies
+  - Mental wellness tips
+  - Time management techniques
+  - Focus improvement methods
+- Maintains conversation history for context-aware responses
 
-- **Virtual Coach Chatbot:**  
-  Engage with an interactive chatbot that offers productivity tips, motivation, and quick mindfulness exercises.
+### 4. User Authentication
+- Secure login and registration system
+- Firebase authentication integration
+- User profile management
+- Saved predictions and chat history
 
-- **Task & Scheduler Integration:**  
-  Manage your daily to-do list and integrate with third-party calendars (e.g., Google Calendar) to streamline your schedule.
-
----
-
-## Architecture & Tech Stack
+## Technology Stack
 
 ### Frontend
-- **Framework:** React.js  
-- **Styling:** Tailwind CSS / Material-UI  
-- **Real-Time:** Socket.io (for live notifications and chat)
+- **Next.js 15** - React framework for server-rendered applications
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Animation library
+- **GSAP** - Advanced animations
+- **AOS** - Scroll animations
+- **Three.js** - 3D graphics (for brain visualization)
 
 ### Backend
-- **Server Framework:**  
-  - Option 1: Node.js with Express  
-  - Option 2: Django REST Framework (for Python-centric ML integration)
-- **Authentication:** JWT-based authentication
+- **Firebase** - Authentication, Firestore database, and hosting
+- **Google Gemini AI** - Natural language processing for chat assistant
+- **Flask API** - Machine learning model for distraction prediction
 
-### Database
-- **Option 1:** PostgreSQL (for structured user data)
-- **Option 2:** MongoDB (for flexible, schema-less data storage)
-
-### Machine Learning
-- **Behavior Analysis / Anomaly Detection Models:**  
-  - Primary: Isolation Forest (unsupervised anomaly detection)  
-  - Optional: One-Class SVM, K-means clustering for extended insights
-- **Languages & Libraries:** Python, scikit-learn, Pandas, NumPy  
-- **Serving Models:** Flask or FastAPI microservice
-
-### Deployment & DevOps
-- **Containerization:** Docker  
-- **Cloud:** AWS / Heroku / Google Cloud  
-- **CI/CD:** GitHub Actions or similar pipelines
-
----
-
-## Setup & Installation
+## Getting Started
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (if using Node.js backend) or [Python 3](https://www.python.org/) (if using Django/Flask)
-- [Git](https://git-scm.com/) for version control
-- [Docker](https://www.docker.com/) (optional, for containerization)
+- Node.js (v18 or higher)
+- npm or yarn
+- Firebase account
+- Google Gemini API key
 
-### Clone the Repository
+### Installation
+
+1. Clone the repository
 ```bash
-git clone https://github.com/your_username/distraction-detox.git
-cd distraction-detox
+git clone https://github.com/yourusername/brain_hack.git
+cd brain_hack
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Set up environment variables
+Create a `.env.local` file in the root directory with the following variables:
+```
+# Firebase Configuration
+NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_firebase_app_id
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your_firebase_measurement_id
+
+# Gemini API Configuration
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+4. Run the development server
+```bash
+npm run dev
+```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Project Structure
+
+```
+brain_hack/
+├── public/                  # Static assets
+├── src/
+│   ├── app/                 # Next.js app router
+│   │   ├── api/             # API routes
+│   │   ├── ask-ai/          # AI chat page
+│   │   ├── login/           # Login page
+│   │   ├── register/        # Registration page
+│   │   ├── risk-predictor/  # Distraction risk predictor page
+│   │   └── ...
+│   ├── components/          # Reusable UI components
+│   ├── lib/                 # Utility functions and Firebase setup
+│   └── styles/              # Global styles
+├── scripts/                 # Utility scripts
+├── .env.local               # Environment variables
+├── next.config.js           # Next.js configuration
+├── package.json             # Project dependencies
+└── README.md                # Project documentation
+```
+
+## Deployment
+
+The application is deployed on Firebase Hosting. To deploy:
+
+```bash
+npm run build
+firebase deploy --only hosting
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Google Gemini AI for providing the chat capabilities
+- Firebase for authentication and hosting
+- The open-source community for the various libraries used in this project
+
+## Contact
+
+Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
+
+Project Link: [https://github.com/yourusername/brain_hack](https://github.com/yourusername/brain_hack)
