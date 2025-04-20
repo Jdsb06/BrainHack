@@ -68,8 +68,8 @@ BrainHack is an innovative web application that combines cutting-edge AI technol
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/brain_hack.git
-cd brain_hack
+git clone https://github.com/Jdsb06/BrainHack.git
+cd BrainHack
 ```
 
 2. Install dependencies
