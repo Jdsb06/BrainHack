@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Distraction Risk Predictor - Firebase Integration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 50px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .risk-meter {
+            width: 100%;
+            height: 30px;
+            background-color: #e9ecef;
+            border-radius: 15px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .risk-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #ffeb3b, #f44336);
+            width: 0%;
+            transition: width 0.5s;
+        }
+        .result-section {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+        }
+        .history-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+        .login-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Focus Flow: Distraction Risk Predictor</h1>
+        
+        <!-- Firebase Authentication UI -->
+        <div class="login-section" id="login-section">
+            <button id="login-button" class="btn btn-primary">Sign in with Google</button>
+            <button id="logout-button" class="btn btn-secondary" style="display: none;">Sign Out</button>
+            <p id="user-details" class="mt-2"></p>
+        </div>
+
+        <!-- Prediction Form (same as original) -->
+        <form id="prediction-form">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="time_of_day_hour">Current Hour (0-23)</label>
+                    <input type="number" class="form-control" id="time_of_day_hour" name="time_of_day_hour" min="0" max="23" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="day_of_week">Day of Week</label>
+                    <select class="form-control" id="day_of_week" name="day_of_week" required>
+                        <option value="Mon">Monday</option>
+                        <option value="Tue">Tuesday</option>
+                        <option value="Wed">Wednesday</option>
+                        <option value="Thu">Thursday</option>
+                        <option value="Fri">Friday</option>
+                        <option value="Sat">Saturday</option>
+                        <option value="Sun">Sunday</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Other form fields (same as original) -->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="location">Current Location</label>
+                    <select class="form-control" id="location" name="location" required>
+                        <option value="home">Home</option>
+                        <option value="school">School</option>
+                        <option value="library">Library</option>
+                        <option value="coffee_shop">Coffee Shop</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="current_activity">Current Activity</label>
+                    <select class="form-control" id="current_activity" name="current_activity" required>
+                        <option value="studying">Studying</option>
+                        <option value="break">Taking a Break</option>
+                        <option value="lecture">In a Lecture</option>
+                        <option value="relaxing">Relaxing</option>
+                        <option value="exercise">Exercise</option>
+                        <option value="meal">Having a Meal</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- More form fields (abbreviated for brevity) -->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="stress_level">Stress Level (1-5)</label>
+                    <input type="range" class="form-control-range" id="stress_level" name="stress_level" min="1" max="5" value="3">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="fatigue_level">Fatigue Level (1-5)</label>
+                    <input type="range" class="form-control-range" id="fatigue_level" name="fatigue_level" min="1" max="5" value="3">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Predict Distraction Risk</button>
+        </form>
+
+        <!-- Results Section (same as original) -->
+        <div class="result-section" id="result-section">
+            <h3>Your Distraction Risk</h3>
+            <div class="risk-meter">
+                <div class="risk-fill" id="risk-fill"></div>
+            </div>
+            <h4 id="risk-percentage">0%</h4>
+
+            <div class="mt-4">
+                <h5>Recommendation:</h5>
+                <p id="recommendation"></p>
+                <p id="alternative"></p>
+            </div>
+
+            <div class="mt-4">
+                <h5>Focus Timer</h5>
+                <p>Based on your current risk level, we recommend:</p>
+                <div class="d-flex justify-content-center">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-success" id="start-timer">Start Focus Session (25 min)</button>
+                        <button class="btn btn-warning" id="take-break">Take Break (5 min)</button>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <h3 id="timer-display">25:00</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- New: Prediction History Section -->
+        <div class="mt-5" id="history-section" style="display: none;">
+            <h3>Your Prediction History</h3>
+            <div id="prediction-history"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+    <script>
+        // Firebase configuration - replace with your own config
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "your-app.firebaseapp.com",
+            projectId: "your-app",
+            storageBucket: "your-app.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        
+        // Authentication variables
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        let currentUser = null;
+
+        // Authentication UI
+        document.getElementById('login-button').addEventListener('click', () => {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider);
+        });
+
+        document.getElementById('logout-button').addEventListener('click', () => {
+            auth.signOut();
+        });
+
+        // Auth state observer
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                // User is signed in
+                currentUser = user;
+                document.getElementById('login-button').style.display = 'none';
+                document.getElementById('logout-button').style.display = 'inline-block';
+                document.getElementById('user-details').textContent = `Signed in as ${user.displayName}`;
+                document.getElementById('history-section').style.display = 'block';
+                loadPredictionHistory();
+            } else {
+                // User is signed out
+                currentUser = null;
+                document.getElementById('login-button').style.display = 'inline-block';
+                document.getElementById('logout-button').style.display = 'none';
+                document.getElementById('user-details').textContent = '';
+                document.getElementById('history-section').style.display = 'none';
+            }
+        });
+
+        // Load prediction history from Firestore
+        function loadPredictionHistory() {
+            if (!currentUser) return;
+            
+            const historyContainer = document.getElementById('prediction-history');
+            historyContainer.innerHTML = '<p>Loading history...</p>';
+            
+            db.collection('predictions')
+                .where('userId', '==', currentUser.uid)
+                .orderBy('timestamp', 'desc')
+                .limit(5)
+                .get()
+                .then(snapshot => {
+                    historyContainer.innerHTML = '';
+                    
+                    if (snapshot.empty) {
+                        historyContainer.innerHTML = '<p>No prediction history yet.</p>';
+                        return;
+                    }
+                    
+                    snapshot.forEach(doc => {
+                        const data = doc.data();
+                        const date = data.timestamp.toDate();
+                        const historyItem = document.createElement('div');
+                        historyItem.className = 'history-item';
+                        historyItem.innerHTML = `
+                            <strong>${date.toLocaleString()}</strong>
+                            <p>Risk: ${data.riskPercentage}%</p>
+                            <p>${data.recommendation}</p>
+                        `;
+                        historyContainer.appendChild(historyItem);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error loading history:", error);
+                    historyContainer.innerHTML = '<p>Error loading history. Please try again.</p>';
+                });
+        }
+
+        // Form submission - modified to use Firebase
+        $('#prediction-form').on('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {};
+            $(this).serializeArray().forEach(item => {
+                formData[item.name] = item.value;
+            });
+            
+            // Call your ML API (hosted separately)
+            $.ajax({
+                type: 'POST',
+                url: 'https://your-ml-api-url.com/predict', // Replace with your API URL
+                data: formData,
+                success: function(response) {
+                    // Show results section
+                    $('#result-section').show();
+                    
+                    // Update risk meter
+                    $('#risk-fill').css('width', response.risk_percentage + '%');
+                    $('#risk-percentage').text(response.risk_percentage + '% Risk');
+                    
+                    // Update recommendations
+                    $('#recommendation').text(response.recommendation);
+                    $('#alternative').text(response.alternative);
+                    
+                    // Save to Firestore if user is logged in
+                    if (currentUser) {
+                        db.collection('predictions').add({
+                            userId: currentUser.uid,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                            riskPercentage: response.risk_percentage,
+                            recommendation: response.recommendation,
+                            alternative: response.alternative,
+                            inputs: formData
+                        })
+                        .then(() => {
+                            console.log("Prediction saved to Firestore");
+                            loadPredictionHistory(); // Refresh history
+                        })
+                        .catch(error => {
+                            console.error("Error saving prediction:", error);
+                        });
+                    }
+                    
+                    // Scroll to results
+                    $('html, body').animate({
+                        scrollTop: $("#result-section").offset().top
+                    }, 500);
+                },
+                error: function(error) {
+                    console.error("Error making prediction:", error);
+                    alert("Error making prediction. Please try again.");
+                }
+            });
+        });
+
+        // Focus timer functionality (same as original)
+        let timerInterval;
+        let minutes = 25;
+        let seconds = 0;
+        let isBreak = false;
+
+        function updateTimerDisplay() {
+            $('#timer-display').text(
+                (minutes < 10 ? '0' : '') + minutes + ':' +
+                (seconds < 10 ? '0' : '') + seconds
+            );
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(function() {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(timerInterval);
+                        alert(isBreak ? 'Break finished! Ready to focus?' : 'Focus session complete! Take a break?');
+                        return;
+                    }
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                updateTimerDisplay();
+            }, 1000);
+        }
+
+        $('#start-timer').click(function() {
+            minutes = 25;
+            seconds = 0;
+            isBreak = false;
+            updateTimerDisplay();
+            startTimer();
+        });
+
+        $('#take-break').click(function() {
+            minutes = 5;
+            seconds = 0;
+            isBreak = true;
+            updateTimerDisplay();
+            startTimer();
+        });
+    </script>
+</body>
+</html>
