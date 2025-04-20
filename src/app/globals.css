@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Georgia", serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+    
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+    
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 15 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
+    
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 24 100% 50%;
+    
+    --radius: 0.5rem;
+    --sidebar-background: 40 40% 95%; /* Cream */
+    --sidebar-foreground: 0 0% 5%; /* Black */
+    --sidebar-primary: 0 0% 5%; /* Black */
+    --sidebar-primary-foreground: 40 40% 95%; /* Cream */
+    --sidebar-accent: 40 30% 90%; /* Lighter Cream */
+    --sidebar-accent-foreground: 0 0% 5%; /* Black */
+    --sidebar-border: 40 30% 80%; /* Cream Border */
+    --sidebar-ring: 40 50% 75%; /* Cream Ring */
+  }
+  .dark {
+    --background: 0 0% 5%; /* Black */
+    --foreground: 40 40% 95%; /* Cream */
+    --card: 0 0% 10%;
+    --card-foreground: 40 40% 95%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 40 40% 95%;
+    --primary: 40 40% 95%; /* Cream */
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 40 40% 95%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 40 30% 80%;
+    --accent: 40 30% 90%;
+    --accent-foreground: 0 0% 5%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 40% 95%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 40 30% 70%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 0 0% 5%; /* Black */
+    --sidebar-foreground: 40 40% 95%; /* Cream */
+    --sidebar-primary: 40 40% 95%; /* Cream */
+    --sidebar-primary-foreground: 0 0% 5%; /* Black */
+    --sidebar-accent: 0 0% 15%; /* Dark Gray */
+    --sidebar-accent-foreground: 40 40% 95%; /* Cream */
+    --sidebar-border: 0 0% 20%; /* Dark Gray Border */
+    --sidebar-ring: 40 30% 70%; /* Cream Ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Custom styles */
+.custom-cursor {
+  mix-blend-mode: difference;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-red-500;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:scale-105 hover:border-orange-500;
+}
+
+/* Button styles */
+.gradient-button {
+  @apply bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white;
+}
+
+.outline-button {
+  @apply border-2 border-orange-500 text-orange-500 hover:bg-orange-500/10;
+}
+
+/* Section backgrounds */
+.gradient-section {
+  @apply bg-gradient-to-r from-orange-900/50 to-red-900/50;
+}
+
+/* Link hover effects */
+.hover-link {
+  @apply text-gray-400 hover:text-orange-400 transition-colors;
+}
+
+/* Content area styles */
+.content-area {
+  @apply relative z-10;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
+  backdrop-filter: blur(10px);
+}
+
+/* Text visibility improvements */
+h1, h2, h3, h4, h5, h6 {
+  @apply text-white font-bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p, span, div {
+  @apply text-gray-100;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Card improvements */
+.card {
+  @apply bg-black/80 backdrop-blur-md border border-orange-500/20;
+}
+
+/* Form elements */
+input, textarea, select {
+  @apply bg-black/80 border-orange-500/30 text-white placeholder-gray-400;
+}
+
+/* Table improvements */
+table {
+  @apply bg-black/80 border-orange-500/20;
+}
+
+th {
+  @apply bg-black/90 text-orange-400;
+}
+
+td {
+  @apply border-orange-500/10 text-gray-100;
+}
+
+/* List improvements */
+ul, ol {
+  @apply text-gray-100;
+}
+
+li {
+  @apply mb-2;
+}
