@@ -1,102 +1,107 @@
-# BrainHack - Your Personal Productivity and Mental Wellness Companion
+# BrainHack – Your Personal Productivity & Mental Wellness Companion
 
-![BrainHack Logo](public/logo.png)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Version](https://img.shields.io/badge/version-1.0-blue.svg)]() [![Next.js](https://img.shields.io/badge/Next.js-15-black.svg)]() [![Firebase](https://img.shields.io/badge/Firebase-backend-yellow.svg)]()
+
+---
+
+## Table of Contents
+- [Demo](#demo)  
+- [Overview](#overview)  
+- [Features](#features)  
+- [Future Roadmap](#future-roadmap)  
+- [Technology Stack](#technology-stack)  
+- [Getting Started](#getting-started)  
+- [Project Structure](#project-structure)  
+- [Deployment](#deployment)  
+- [Contributing](#contributing)  
+- [License](#license)  
+- [Meet the BrainHack Team](#meet-the-brainhack-team)  
+
+---
+
+## Demo
+> *(Add your animated GIF or screenshot here)*  
+![BrainHack Demo](public/demo.gif)
+
+---
 
 ## Overview
+BrainHack is an innovative web app that blends AI and neuroscience to help you:
+- 🔍 Understand and predict distraction risk  
+- 🧭 Track and achieve your goals across multiple time horizons  
+- 🤖 Chat with an AI-powered coach for productivity & wellness tips  
+- ⏱️ Run focus sessions with data-driven recommendations  
 
-BrainHack is an innovative web application that combines cutting-edge AI technology with neuroscience principles to help users achieve optimal focus and maintain mental wellness. The platform features an interactive brain visualization, AI-powered distraction risk prediction, and an intelligent chat assistant.
+---
 
 ## Features
+1. **Interactive Brain Visualization**  
+   - Split-brain UI showing logic vs. creativity, with responsive animations.  
+2. **Distraction Risk Predictor**  
+   - ML model flags high-risk moments using time, stress, notifications & usage data.  
+3. **AI Chat Assistant**  
+   - Context-aware coach powered by Google’s Gemini AI for productivity & wellness advice.  
+4. **Goal Tracking**  
+   - Manage Today, 30-Day, 90-Day & 1-Year goals with progress rings & subtasks.  
+5. **Focus Timer**  
+   - Preset/custom sessions, end-session stats, break suggestions, and distraction-free mode.  
+6. **Analytics Dashboard**  
+   - Sparklines and mini-charts visualize your focus vs. distraction trends.
 
-### 1. Interactive Brain Visualization
-- Split-brain animation representing the harmony between analytical and creative thinking
-- Left hemisphere showcases logical processing in grayscale
-- Right hemisphere displays creativity through vibrant colors
-- Dynamic animations respond to user interactions
-- Custom cursor effects and gradient overlays
+---
 
-### 2. Distraction Risk Predictor
-- AI-powered tool that analyzes multiple factors affecting focus
-- Input parameters include:
-  - Time of day and location
-  - Current activity and productive session duration
-  - Stress and fatigue levels
-  - Recent notifications and phone usage
-- Provides personalized risk assessments and actionable recommendations
-- Includes a focus timer with customizable session lengths
+## Future Roadmap
 
-### 3. AI Chat Assistant
-- Powered by Google's Gemini AI
-- Provides personalized advice on:
-  - Productivity strategies
-  - Mental wellness tips
-  - Time management techniques
-  - Focus improvement methods
-- Maintains conversation history for context-aware responses
+| Feature                     | Vision                                                                                                                        |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| Distraction Risk Predictor  | **Next-Step Simulation:** RL engine shows “If you skip your break, here’s your 1-hr focus drop” in real time.                  |
+| Personalized Recommendations| **Adaptive RL Advisor:** Continuously refines tips based on your feedback and predicts long-term habit impact.               |
+| AI Chat Assistant           | **Proactive Coach:** Auto-pings mini-sessions (“Your focus is slipping—try a 2-min breathing exercise?”).                     |
+| Goal Tracking               | **Dynamic Micro-Goals:** RL-powered bite-sized tasks (e.g., “Read 2 pages now”) and auto-adjust difficulty per performance.  |
+| Focus Timer                 | **Smart Scheduler:** Auto-schedules your next focus block using peak-hour forecasting and calendar context.                  |
+| Analytics Dashboard         | **Predictive Forecasting:** “What-if” scenarios—see how today’s tweaks could boost next week’s total focus time by X%.       |
 
-### 4. User Authentication
-- Secure login and registration system
-- Firebase authentication integration
-- User profile management
-- Saved predictions and chat history
+---
 
 ## Technology Stack
 
-### Frontend
-- **Next.js 15** - React framework for server-rendered applications
-- **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **GSAP** - Advanced animations
-- **AOS** - Scroll animations
-- **Three.js** - 3D graphics (for brain visualization)
+### Built With
+<p>
+  <img src="https://img.shields.io/badge/Next.js-15-black?logo=next.js" alt="Next.js" />  
+  <img src="https://img.shields.io/badge/TypeScript-blue?logo=typescript" alt="TypeScript" />  
+  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwind-css" alt="Tailwind CSS" />  
+  <img src="https://img.shields.io/badge/Framer%20Motion-000?logo=framer" alt="Framer Motion" />  
+  <img src="https://img.shields.io/badge/Three.js-000?logo=three.js" alt="Three.js" />  
+  <img src="https://img.shields.io/badge/Firebase-FFF00F?logo=firebase" alt="Firebase" />  
+  <img src="https://img.shields.io/badge/Python-3776AB?logo=python" alt="Python" />  
+</p>
 
-### Backend
-- **Firebase** - Authentication, Firestore database, and hosting
-- **Google Gemini AI** - Natural language processing for chat assistant
-- **Flask API** - Machine learning model for distraction prediction
+---
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
-- Firebase account
-- Google Gemini API key
+- Node.js v18+  
+- npm or yarn  
+- Firebase account  
+- Google Gemini API key  
 
 ### Installation
-
-1. Clone the repository
 ```bash
+# Clone repo
 git clone https://github.com/Jdsb06/BrainHack.git
 cd BrainHack
-```
 
-2. Install dependencies
-```bash
+# Install dependencies
 npm install
-```
 
-3. Set up environment variables
-Create a `.env.local` file in the root directory with the following variables:
-```
-# Firebase Configuration
-NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
-NEXT_PUBLIC_FIREBASE_APP_ID=your_firebase_app_id
-NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your_firebase_measurement_id
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your Firebase & Gemini keys
 
-# Gemini API Configuration
-GEMINI_API_KEY=your_gemini_api_key
-```
-
-4. Run the development server
-```bash
+# Run dev server
 npm run dev
-```
+
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
