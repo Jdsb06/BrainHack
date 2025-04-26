@@ -151,6 +151,19 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - The open-source community for the various libraries used in this project
 
 
+## Features & Future Vision
+
+| Feature                     | Current Implementation                                                                                   | Future Vision                                                                                                                               |
+|-----------------------------|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| **Distraction Risk Predictor**  | AI model flags high-risk moments based on time, stress, notifications, and usage patterns                | **Next-Step Simulation**: a reinforcement-learning engine that shows you “if you skip your break, here’s the 1-hr focus drop” in real time     |
+| **Personalized Recommendations** | Static suggestions for breaks, content swaps, and focus tweaks based on past behavior                   | **Adaptive RL Advisor**: learns from your feedback to refine advice continuously, even predicting long-term habit impact (“Your focus streak will improve by 12% if you follow this…”) |
+| **AI Chat Assistant**           | Context-aware chat powered by Gemini AI offering tips on productivity and wellness                     | **Proactive Coach**: autonomously pings you with mini-sessions (“Hey, I noticed your focus is slipping—want a 2-min breathing exercise?”)     |
+| **Goal Tracking**               | Track daily, 30-day, 90-day, and annual goals with progress rings and subtasks                         | **Dynamic Micro-Goals**: auto-generate bite-sized habits (e.g., “Read 2 pages now”) and adjust goal difficulty using RL based on your performance curve |
+| **Focus Timer**                 | Preset/custom timers + end-session stats and break prompts                                              | **Smart Scheduler**: the app auto-schedules your next focus block by forecasting your peak hours from past data and calendar context        |
+| **Analytics Dashboard**         | Visualize trends with sparklines and pie/circular charts                                                | **Predictive Forecasting**: run “what-if” scenarios—see how today’s schedule tweaks could boost next week’s total focus time by X%           |
+
+
+
 ## Meet the BrainHack Team 🧠✨
 
 - 👨‍💻 **Jashandeep Singh Bedi**  
