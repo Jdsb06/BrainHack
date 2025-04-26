@@ -21,7 +21,7 @@
 
 ## Demo
 > *(Add your animated GIF or screenshot here)*  
-![BrainHack Demo](public/demo.gif)
+![BrainHack Demo](public/demo.png)
 
 ---
 
