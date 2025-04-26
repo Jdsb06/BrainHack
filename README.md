@@ -154,4 +154,13 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 
 
-Email: [(jashandeepsingh.b@iiitb.ac.in)](jashandeepsingh.b@iiitb.ac.in)
+Feel free to connect with our team:
+
+- **Jashandeep Singh Bedi**  
+  [Email](mailto:jashandeepsingh.b@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/jdsb06)
+
+- **Heer**  
+  [Email](mailto:heer@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/heer)
+
+- **Lakshay Jain**  
+  [Email](mailto:lakshya.jain@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/lakshayjain)
