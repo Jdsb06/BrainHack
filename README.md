@@ -150,17 +150,21 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Firebase for authentication and hosting
 - The open-source community for the various libraries used in this project
 
-## Contact
 
+## Meet the BrainHack Team 🧠✨
 
+- 👨‍💻 **Jashandeep Singh Bedi**  
+  - 📧 [Email](mailto:jashandeepsingh.b@iiitb.ac.in)  
+  - 🔗 [LinkedIn](https://linkedin.com/in/jashandeep)  
+  - 🐙 [GitHub](https://github.com/Jdsb06)
 
-Feel free to connect with our team:
+- 👩‍💻 **Heer**  
+  - 📧 [Email](mailto:heer@iiitb.ac.in)
+  - 🔗 [LinkedIn](https://linkedin.com/in/heer-grover)  
+  - 🐙 [GitHub](https://github.com/Heer-create-lgtm)
 
-- **Jashandeep Singh Bedi**  
-  [Email](mailto:jashandeepsingh.b@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/jdsb06) | [GitHub](https://github.com/Jdsb06)
+- 👨‍💻 **Lakshay Jain**  
+  - 📧 [Email](mailto:lakshya.jain@iiitb.ac.in)
+  - 🔗 [LinkedIn](https://linkedin.com/in/lakshayjain)  
+  - 🐙 [GitHub](https://github.com/lakshayjain)
 
-- **Heer**  
-  [Email](mailto:heer@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/heer) | [GitHub](https://github.com/jashandeep)
-
-- **Lakshay Jain**  
-  [Email](mailto:lakshya.jain@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/lakshayjain) | [GitHub](https://github.com/jashandeep)
