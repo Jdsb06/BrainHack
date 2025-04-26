@@ -154,4 +154,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 
 
-Project Link: [(https://github.com/Jdsb06/BrainHack.git)](https://github.com/Jdsb06/BrainHack.git))
+Email: [(jashandeepsingh.b@iiitb.ac.in)](jashandeepsingh.b@iiitb.ac.in)
