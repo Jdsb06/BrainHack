@@ -155,7 +155,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - 👨‍💻 **Jashandeep Singh Bedi**  
   - 📧 [Email](mailto:jashandeepsingh.b@iiitb.ac.in)  
-  - 🔗 [LinkedIn](https://linkedin.com/in/jashandeep)  
+  - 🔗 [LinkedIn](https://linkedin.com/in/jdsb06)  
   - 🐙 [GitHub](https://github.com/Jdsb06)
 
 - 👩‍💻 **Heer**  
