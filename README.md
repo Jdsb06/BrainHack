@@ -112,7 +112,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ```
 brain_hack/
-├── public/                  # Static assets
+├── public/                  # Static assets & images
 ├── src/
 │   ├── app/                 # Next.js app router
 │   │   ├── api/             # API routes
@@ -120,12 +120,15 @@ brain_hack/
 │   │   ├── login/           # Login page
 │   │   ├── register/        # Registration page
 │   │   ├── risk-predictor/  # Distraction risk predictor page
-│   │   └── ...
+│   │   └── ...              # Other pages
 │   ├── components/          # Reusable UI components
-│   ├── lib/                 # Utility functions and Firebase setup
+│   ├── lib/                 # Firebase, Gemini, and utility setup
 │   └── styles/              # Global styles
+├── Bot/                     # AI Chatbot backend logic (models, routes, handlers)
+├── flask_app/               # Flask backend for Distraction Risk Predictor (API + ML inference)
+├── BrainHack/               # ML model training code, datasets, notebooks, experiments
 ├── scripts/                 # Utility scripts
-├── .env.local               # Environment variables
+├── .env.example             # Example environment variables
 ├── next.config.js           # Next.js configuration
 ├── package.json             # Project dependencies
 └── README.md                # Project documentation
