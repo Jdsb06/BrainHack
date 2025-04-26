@@ -157,10 +157,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Feel free to connect with our team:
 
 - **Jashandeep Singh Bedi**  
-  [Email](mailto:jashandeepsingh.b@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/jdsb06)
+  [Email](mailto:jashandeepsingh.b@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/jdsb06) | [GitHub](https://github.com/Jdsb06)
 
 - **Heer**  
-  [Email](mailto:heer@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/heer)
+  [Email](mailto:heer@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/heer) | [GitHub](https://github.com/jashandeep)
 
 - **Lakshay Jain**  
-  [Email](mailto:lakshya.jain@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/lakshayjain)
+  [Email](mailto:lakshya.jain@iiitb.ac.in) | [LinkedIn](https://linkedin.com/in/lakshayjain) | [GitHub](https://github.com/jashandeep)
