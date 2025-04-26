@@ -91,19 +91,22 @@ BrainHack is an innovative web app that blends AI and neuroscience to help you:
 # Clone repo
 git clone https://github.com/Jdsb06/BrainHack.git
 cd BrainHack
-
+```
+```bash
 # Install dependencies
 npm install
-
+```
+```bash
 # Set up environment variables
 cp .env.example .env.local
 # Edit .env.local with your Firebase & Gemini keys
-
+```
+```bash
 # Run dev server
 npm run dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
+Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## Project Structure
 
