@@ -20,7 +20,7 @@
 ---
 
 ## Demo
-> *(Add your animated GIF or screenshot here)*  
+
 ![BrainHack Demo](public/demo.png)
 
 ---
