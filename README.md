@@ -166,5 +166,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - 👨‍💻 **Lakshay Jain**  
   - 📧 [Email](mailto:lakshya.jain@iiitb.ac.in)
   - 🔗 [LinkedIn](https://linkedin.com/in/lakshayjain)  
-  - 🐙 [GitHub](https://github.com/lakshayjain)
+  - 🐙 [GitHub](https://github.com/anonymousz77)
 
