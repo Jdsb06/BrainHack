@@ -107,7 +107,7 @@ This folder contains everything to train, evaluate, and deploy the Distraction R
 
 ### 🔍 Top Feature Importances
 
-![Feature Importances](public/feature_importance.jpeg)
+![Feature Importances](Public/feature_importance.jpeg)
 
 ---
 
